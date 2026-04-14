@@ -523,6 +523,96 @@
   .status-ph3  { background: rgba(201,168,76,0.15); color: var(--gold); }
   .status-ph4  { background: rgba(91,141,184,0.15); color: var(--accent-blue); }
   .status-ph5  { background: rgba(46,204,113,0.15); color: var(--accent-green); }
+  .status-lost { background: rgba(231,76,60,0.15);  color: #E74C3C; }
+  .status-won  { background: rgba(201,168,76,0.20); color: #DAA520; }
+
+  /* ━━━━━━━━━━ OUTCOME CARDS ━━━━━━━━━━ */
+  .outcome-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .outcome-card {
+    flex: 1;
+    background: var(--navy-card);
+    border: 1px solid var(--border-faint);
+    border-radius: 6px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .outcome-card:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+  }
+
+  .outcome-card.lost { border-left: 3px solid rgba(231,76,60,0.5); }
+  .outcome-card.won  { border-left: 3px solid rgba(46,204,113,0.5); }
+
+  .outcome-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .outcome-card.lost .outcome-icon { background: rgba(231,76,60,0.10); }
+  .outcome-card.won  .outcome-icon { background: rgba(46,204,113,0.10); }
+
+  .outcome-body { flex: 1; }
+
+  .outcome-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .outcome-value {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .outcome-card.lost .outcome-value { color: #E74C3C; }
+  .outcome-card.won  .outcome-value { color: #2ECC71; }
+
+  .outcome-value span {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-family: var(--sans);
+    font-weight: 400;
+    margin-left: 3px;
+  }
+
+  .outcome-detail {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .outcome-detail strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .outcome-none {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .outcome-row { animation: fadeUp 0.6s ease 0.20s both; }
 
   /* ━━━━━━━━━━ INSIGHT GRID ━━━━━━━━━━ */
   .insight-grid {
@@ -866,12 +956,12 @@
       <!-- Card 1: 有効商談数 -->
       <div class="kpi-card">
         <div class="kpi-label" style="color:var(--gold)">有効商談数</div>
-        <div class="kpi-value">14<span>社</span></div>
+        <div class="kpi-value">13<span>社</span></div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
           担当部門 / 課題検討中 / 時期感あり<br>2回目アポ or トライアル意向
         </div>
-        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">43%</strong></div>
+        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">38%</strong></div>
       </div>
 
       <div class="kpi-arrow">
@@ -882,7 +972,7 @@
       <!-- Card 2: PJ化予定あり -->
       <div class="kpi-card">
         <div class="kpi-label" style="color:var(--accent-blue-lt)">PJ化予定あり</div>
-        <div class="kpi-value" style="color:var(--accent-blue-lt)">14<span>社</span></div>
+        <div class="kpi-value" style="color:var(--accent-blue-lt)">13<span>社</span></div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
           2回目の商談意向あり<br>or トライアル意向あり
@@ -907,12 +997,12 @@
       <!-- Card 3: PJ可能案件 -->
       <div class="kpi-card" data-accent="blue">
         <div class="kpi-label" style="color:var(--accent-blue)">PJ可能案件</div>
-        <div class="kpi-value" style="color:var(--accent-blue)">8<span>社</span></div>
+        <div class="kpi-value" style="color:var(--accent-blue)">7<span>社</span></div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
           上長の社内推進<br>及び 社内障壁のクリア
         </div>
-        <div class="kpi-rate">移行率 <strong style="color:var(--accent-blue)">57%</strong></div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-blue)">54%</strong></div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">対象企業 — 2社</div>
           <div class="tooltip-row blue">株式ガイアート</div>
@@ -928,20 +1018,39 @@
       <!-- Card 4: PJ進行中 -->
       <div class="kpi-card" data-accent="green">
         <div class="kpi-label" style="color:var(--accent-green)">PJ進行中</div>
-        <div class="kpi-value" style="color:var(--accent-green)">6<span>社</span></div>
+        <div class="kpi-value" style="color:var(--accent-green)">5<span>社</span></div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
           POC実施確定<br>or 2回目商談以降に移行
         </div>
-        <div class="kpi-rate">移行率 <strong style="color:var(--accent-green)">75%</strong></div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-green)">71%</strong></div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">対象企業 — 6社</div>
-          <div class="tooltip-row green">フューチャーセキュアウェイブ株式会社</div>
+          <div class="tooltip-label">対象企業 — 5社</div>
           <div class="tooltip-row green">サンテミナ株式会社</div>
           <div class="tooltip-row green">フォーティエンスコンサルティング株式会社</div>
           <div class="tooltip-row green">ユニソルホールディングス</div>
           <div class="tooltip-row green">チームみらい</div>
           <div class="tooltip-row green">トゥインクルワールド株式会社</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome Cards -->
+    <div class="outcome-row">
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">1<span>社</span></div>
+          <div class="outcome-detail"><strong>フューチャーセキュアウェイブ</strong> — SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div>
+        </div>
+      </div>
+      <div class="outcome-card won">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">契約</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-none">該当なし</div>
         </div>
       </div>
     </div>
@@ -962,8 +1071,8 @@
           <tr>
             <td><span class="deal-no">01</span></td>
             <td><div class="deal-company">フューチャーセキュアウェイブ株式会社</div><div class="deal-members">名和 / 菊池 / 沢坂</div></td>
-            <td><span class="status-badge status-ph5">PJ進行中</span></td>
-            <td><div class="deal-note">Status：セットアップ完了、検証フェーズ中。Next：6月導入に向けた5月のセットアップ商談。</div></td>
+            <td><span class="status-badge status-lost">失注</span></td>
+            <td><div class="deal-note">SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div></td>
           </tr>
           <tr>
             <td><span class="deal-no">02</span></td>
@@ -1059,13 +1168,13 @@
     <div class="kpi-flow">
       <div class="kpi-card">
         <div class="kpi-label" style="color:var(--gold)">有効商談数</div>
-        <div class="kpi-value">8<span>社</span></div>
+        <div class="kpi-value">7<span>社</span></div>
         <div class="kpi-sub">フェーズ03 認定済み商談の総数</div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
           担当部門 / 課題検討中 / 時期感あり<br>2回目アポ or トライアル意向
         </div>
-        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">50%</strong></div>
+        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">43%</strong></div>
       </div>
 
       <div class="kpi-arrow">
@@ -1075,7 +1184,7 @@
 
       <div class="kpi-card">
         <div class="kpi-label" style="color:var(--accent-blue-lt)">PJ化予定あり</div>
-        <div class="kpi-value" style="color:var(--accent-blue-lt)">8<span>社</span></div>
+        <div class="kpi-value" style="color:var(--accent-blue-lt)">7<span>社</span></div>
         <div class="kpi-sub">今期 Phase 2 からの昇格件数</div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
@@ -1098,13 +1207,13 @@
 
       <div class="kpi-card" data-accent="blue">
         <div class="kpi-label" style="color:var(--accent-blue)">PJ可能案件</div>
-        <div class="kpi-value" style="color:var(--accent-blue)">4<span>社</span></div>
+        <div class="kpi-value" style="color:var(--accent-blue)">3<span>社</span></div>
         <div class="kpi-sub">PJ可能案件（社内障壁クリア）</div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
           上長の社内推進<br>及び 社内障壁のクリア
         </div>
-        <div class="kpi-rate">移行率 <strong style="color:var(--accent-blue)">50%</strong></div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-blue)">43%</strong></div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">現在 PJ可能案件 該当なし</div>
         </div>
@@ -1117,7 +1226,7 @@
 
       <div class="kpi-card" data-accent="green">
         <div class="kpi-label" style="color:var(--accent-green)">PJ進行中</div>
-        <div class="kpi-value" style="color:var(--accent-green)">4<span>社</span></div>
+        <div class="kpi-value" style="color:var(--accent-green)">3<span>社</span></div>
         <div class="kpi-sub">POC / 2回目商談以降 到達件数</div>
         <div class="kpi-cond">
           <div class="kpi-cond-title">認定条件</div>
@@ -1125,11 +1234,30 @@
         </div>
         <div class="kpi-rate">移行率 <strong style="color:var(--accent-green)">100%</strong></div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">対象企業 — 4社</div>
-          <div class="tooltip-row green">フューチャーセキュアウェイブ株式会社</div>
+          <div class="tooltip-label">対象企業 — 3社</div>
           <div class="tooltip-row green">サンテミナ株式会社</div>
           <div class="tooltip-row green">フォーティエンスコンサルティング株式会社</div>
           <div class="tooltip-row green">ユニソルホールディングス</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome Cards -->
+    <div class="outcome-row">
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">1<span>社</span></div>
+          <div class="outcome-detail"><strong>フューチャーセキュアウェイブ</strong> — SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div>
+        </div>
+      </div>
+      <div class="outcome-card won">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">契約</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-none">該当なし</div>
         </div>
       </div>
     </div>
@@ -1150,8 +1278,8 @@
           <tr>
             <td><span class="deal-no">01</span></td>
             <td><div class="deal-company">フューチャーセキュアウェイブ株式会社</div><div class="deal-members">名和 / 菊池 / 沢坂</div></td>
-            <td><span class="status-badge status-ph5">PJ進行中</span></td>
-            <td><div class="deal-note">Status：セットアップ完了、検証フェーズ中。Next：6月導入に向けた5月のセットアップ商談。</div></td>
+            <td><span class="status-badge status-lost">失注</span></td>
+            <td><div class="deal-note">SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div></td>
           </tr>
           <tr>
             <td><span class="deal-no">02</span></td>
@@ -1301,6 +1429,26 @@
           <div class="tooltip-label">対象企業 — 2社</div>
           <div class="tooltip-row green">チームみらい</div>
           <div class="tooltip-row green">トゥインクルワールド株式会社</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome Cards -->
+    <div class="outcome-row">
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-none">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card won">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">契約</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-none">該当なし</div>
         </div>
       </div>
     </div>
