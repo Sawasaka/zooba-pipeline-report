@@ -393,7 +393,10 @@
     z-index: 1;
   }
 
-  .kpi-card:hover .kpi-tooltip { display: block; }
+  .kpi-card:hover .kpi-tooltip,
+  .outcome-card:hover .kpi-tooltip { display: block; }
+
+  .tooltip-row.red { border-color: rgba(231,76,60,0.5); color: #E74C3C; }
 
   .tooltip-label {
     font-size: 9px;
@@ -1067,6 +1070,10 @@
           <div class="outcome-value">1<span>社</span></div>
           <div class="outcome-rate">PJ進行中比 <strong>16%</strong></div>
         </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業 — 1社</div>
+          <div class="tooltip-row red">フューチャーセキュアウェイブ株式会社</div>
+        </div>
       </div>
       <div class="outcome-card won">
         <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1074,6 +1081,10 @@
           <div class="outcome-label">契約</div>
           <div class="outcome-value">0<span>社</span></div>
           <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">契約企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
     </div>
@@ -1274,6 +1285,10 @@
           <div class="outcome-value">1<span>社</span></div>
           <div class="outcome-rate">PJ進行中比 <strong>25%</strong></div>
         </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業 — 1社</div>
+          <div class="tooltip-row red">フューチャーセキュアウェイブ株式会社</div>
+        </div>
       </div>
       <div class="outcome-card won">
         <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1281,6 +1296,10 @@
           <div class="outcome-label">契約</div>
           <div class="outcome-value">0<span>社</span></div>
           <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">契約企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
     </div>
@@ -1465,6 +1484,10 @@
           <div class="outcome-value">0<span>社</span></div>
           <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
         </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
       </div>
       <div class="outcome-card won">
         <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1472,6 +1495,10 @@
           <div class="outcome-label">契約</div>
           <div class="outcome-value">0<span>社</span></div>
           <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">契約企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
     </div>
