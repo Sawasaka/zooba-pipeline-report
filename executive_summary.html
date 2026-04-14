@@ -612,6 +612,29 @@
     color: var(--text-muted);
   }
 
+  .outcome-rate {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-faint);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .outcome-rate strong {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .outcome-card.lost .outcome-rate strong { color: #E74C3C; }
+  .outcome-card.won  .outcome-rate strong { color: #2ECC71; }
+
   .outcome-row { animation: fadeUp 0.6s ease 0.20s both; }
 
   /* ━━━━━━━━━━ INSIGHT GRID ━━━━━━━━━━ */
@@ -1042,7 +1065,7 @@
         <div class="outcome-body">
           <div class="outcome-label">失注</div>
           <div class="outcome-value">1<span>社</span></div>
-          <div class="outcome-detail"><strong>フューチャーセキュアウェイブ</strong> — SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div>
+          <div class="outcome-rate">PJ進行中比 <strong>16%</strong></div>
         </div>
       </div>
       <div class="outcome-card won">
@@ -1050,7 +1073,7 @@
         <div class="outcome-body">
           <div class="outcome-label">契約</div>
           <div class="outcome-value">0<span>社</span></div>
-          <div class="outcome-none">該当なし</div>
+          <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
         </div>
       </div>
     </div>
@@ -1249,7 +1272,7 @@
         <div class="outcome-body">
           <div class="outcome-label">失注</div>
           <div class="outcome-value">1<span>社</span></div>
-          <div class="outcome-detail"><strong>フューチャーセキュアウェイブ</strong> — SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div>
+          <div class="outcome-rate">PJ進行中比 <strong>25%</strong></div>
         </div>
       </div>
       <div class="outcome-card won">
@@ -1257,7 +1280,7 @@
         <div class="outcome-body">
           <div class="outcome-label">契約</div>
           <div class="outcome-value">0<span>社</span></div>
-          <div class="outcome-none">該当なし</div>
+          <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
         </div>
       </div>
     </div>
@@ -1440,7 +1463,7 @@
         <div class="outcome-body">
           <div class="outcome-label">失注</div>
           <div class="outcome-value">0<span>社</span></div>
-          <div class="outcome-none">該当なし</div>
+          <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
         </div>
       </div>
       <div class="outcome-card won">
@@ -1448,7 +1471,7 @@
         <div class="outcome-body">
           <div class="outcome-label">契約</div>
           <div class="outcome-value">0<span>社</span></div>
-          <div class="outcome-none">該当なし</div>
+          <div class="outcome-rate">PJ進行中比 <strong>0%</strong></div>
         </div>
       </div>
     </div>
