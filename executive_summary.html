@@ -655,6 +655,108 @@
 
   .outcome-row { animation: fadeUp 0.6s ease 0.20s both; }
 
+  /* ━━━━━━━━━━ EXECUTIVE SUMMARY ━━━━━━━━━━ */
+  .exec-summary {
+    background: var(--navy-card);
+    border: 1px solid var(--border-faint);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    transition: border-left-color 0.4s;
+    animation: fadeUp 0.55s ease 0.05s both;
+  }
+
+  .exec-summary[data-verdict="順調"] { border-left-color: #2ECC71; }
+  .exec-summary[data-verdict="要注意"] { border-left-color: var(--gold); }
+  .exec-summary[data-verdict="遅延"]   { border-left-color: #E74C3C; }
+
+  .exec-summary .section-label { margin-bottom: 18px; }
+
+  .exec-summary-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+
+  .exec-field-label {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .exec-select {
+    width: 100%;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    color: var(--text-primary);
+    border: 1px solid var(--border-faint);
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238FA3B8' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 34px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .exec-select:focus {
+    outline: none;
+    border-color: rgba(201,168,76,0.4);
+  }
+
+  .exec-select[data-value="順調"] { color: #2ECC71; }
+  .exec-select[data-value="要注意"] { color: var(--gold); }
+  .exec-select[data-value="遅延"]   { color: #E74C3C; }
+
+  .exec-textarea {
+    width: 100%;
+    min-height: 72px;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-faint);
+    border-radius: 4px;
+    resize: vertical;
+    transition: border-color 0.3s;
+  }
+
+  .exec-textarea:focus {
+    outline: none;
+    border-color: rgba(201,168,76,0.4);
+  }
+
+  .exec-textarea::placeholder { color: var(--text-muted); }
+
+  .exec-saved-hint {
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-align: right;
+    min-height: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .exec-saved-hint.show { opacity: 1; }
+
+  @media (max-width: 800px) {
+    .exec-summary-grid { grid-template-columns: 1fr; }
+  }
+
   /* ━━━━━━━━━━ INSIGHT GRID ━━━━━━━━━━ */
   .insight-grid {
     display: grid;
@@ -990,6 +1092,31 @@
   <!--                全体 TAB                    -->
   <!-- ══════════════════════════════════════════ -->
   <div id="tab-all" class="tab-panel active">
+
+    <!-- Executive Summary -->
+    <div class="exec-summary" id="exec-summary">
+      <div class="section-label">エグゼクティブサマリー</div>
+      <div class="exec-summary-grid">
+        <div class="exec-field">
+          <div class="exec-field-label">結論</div>
+          <select id="exec-verdict" class="exec-select">
+            <option value="">—</option>
+            <option value="順調">順調</option>
+            <option value="要注意">要注意</option>
+            <option value="遅延">遅延</option>
+          </select>
+        </div>
+        <div class="exec-field">
+          <div class="exec-field-label">Next</div>
+          <textarea id="exec-next" class="exec-textarea" placeholder="次に取るべきアクション" rows="3"></textarea>
+        </div>
+        <div class="exec-field">
+          <div class="exec-field-label">助けが必要な1点</div>
+          <textarea id="exec-help" class="exec-textarea" placeholder="ブロッカー / 必要な支援" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="exec-saved-hint" id="exec-saved-hint">保存しました</div>
+    </div>
 
     <div class="section-label">商談パイプライン — 全期間合算 <button class="help-btn" onclick="document.getElementById('phase-modal').classList.add('open')">認定条件とは？</button></div>
 
@@ -1715,6 +1842,65 @@
       document.getElementById('phase-modal').classList.remove('open');
     }
   });
+
+  // ── Executive Summary (localStorage) ──
+  (function() {
+    const STORAGE_KEY = 'zooba_exec_summary_v1';
+    const summary = document.getElementById('exec-summary');
+    const verdict = document.getElementById('exec-verdict');
+    const nextEl  = document.getElementById('exec-next');
+    const helpEl  = document.getElementById('exec-help');
+    const hint    = document.getElementById('exec-saved-hint');
+    if (!summary || !verdict || !nextEl || !helpEl) return;
+
+    function applyVerdictStyle() {
+      const v = verdict.value;
+      summary.setAttribute('data-verdict', v);
+      verdict.setAttribute('data-value', v);
+    }
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) { applyVerdictStyle(); return; }
+        const data = JSON.parse(raw);
+        verdict.value = data.verdict || '';
+        nextEl.value  = data.next    || '';
+        helpEl.value  = data.help    || '';
+        applyVerdictStyle();
+      } catch (e) { applyVerdictStyle(); }
+    }
+
+    let hintTimer;
+    function showSavedHint() {
+      hint.classList.add('show');
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(() => hint.classList.remove('show'), 1200);
+    }
+
+    let saveTimer;
+    function save() {
+      applyVerdictStyle();
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => {
+        const data = {
+          verdict: verdict.value,
+          next:    nextEl.value,
+          help:    helpEl.value,
+        };
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          showSavedHint();
+        } catch (e) {}
+      }, 250);
+    }
+
+    verdict.addEventListener('change', save);
+    nextEl.addEventListener('input', save);
+    helpEl.addEventListener('input', save);
+
+    load();
+  })();
 </script>
 
 </body>
