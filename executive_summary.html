@@ -736,7 +736,8 @@
     background: rgba(255,255,255,0.02);
     border: 1px solid var(--border-faint);
     border-radius: 4px;
-    resize: vertical;
+    resize: none;
+    overflow: hidden;
     transition: border-color 0.3s;
   }
 
@@ -1866,16 +1867,24 @@
       verdict.setAttribute('data-value', v);
     }
 
+    function autoGrow(el) {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    }
+
     function load() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) { applyVerdictStyle(); return; }
-        const data = JSON.parse(raw);
-        verdict.value = data.verdict || '';
-        nextEl.value  = data.next    || '';
-        helpEl.value  = data.help    || '';
-        applyVerdictStyle();
-      } catch (e) { applyVerdictStyle(); }
+        if (raw) {
+          const data = JSON.parse(raw);
+          verdict.value = data.verdict || '';
+          nextEl.value  = data.next    || '';
+          helpEl.value  = data.help    || '';
+        }
+      } catch (e) {}
+      applyVerdictStyle();
+      autoGrow(nextEl);
+      autoGrow(helpEl);
     }
 
     let hintTimer;
@@ -1903,8 +1912,9 @@
     }
 
     verdict.addEventListener('change', save);
-    nextEl.addEventListener('input', save);
-    helpEl.addEventListener('input', save);
+    nextEl.addEventListener('input', () => { autoGrow(nextEl); save(); });
+    helpEl.addEventListener('input', () => { autoGrow(helpEl); save(); });
+    window.addEventListener('resize', () => { autoGrow(nextEl); autoGrow(helpEl); });
 
     load();
   })();
