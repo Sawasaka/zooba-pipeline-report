@@ -578,6 +578,9 @@
   .status-ph4  { background: rgba(91,141,184,0.15); color: var(--accent-blue); }
   .status-ph5  { background: rgba(46,204,113,0.15); color: var(--accent-green); }
   .status-lost { background: rgba(231,76,60,0.15);  color: #E74C3C; }
+  .status-pending { background: rgba(170,170,170,0.10); color: var(--text-muted); }
+  .status-approached { background: rgba(139,167,188,0.12); color: #8BA7BC; }
+  .status-appointment { background: rgba(201,168,76,0.15); color: var(--gold); }
   .status-won  { background: rgba(201,168,76,0.20); color: #DAA520; }
 
   /* ━━━━━━━━━━ OUTCOME CARDS ━━━━━━━━━━ */
@@ -1124,6 +1127,7 @@
     <button class="tab-btn active" data-tab="all">全体</button>
     <button class="tab-btn" data-tab="mar">2026年3月</button>
     <button class="tab-btn" data-tab="apr">2026年4月</button>
+    <button class="tab-btn" data-tab="revival">掘り起こし</button>
   </div>
 
   <!-- ══════════════════════════════════════════ -->
@@ -1771,6 +1775,143 @@
     </div>
 
   </div><!-- /tab-apr -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--              掘り起こし TAB                 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="tab-revival" class="tab-panel">
+
+    <div class="section-label">既存掘り起こし — 沢坂担当（HubSpot CRM：2026-03-24時点）</div>
+
+    <div class="kpi-flow">
+      <div class="kpi-card">
+        <div class="kpi-label" style="color:var(--gold)">総件数</div>
+        <div class="kpi-value">63<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">対象</div>
+          沢坂担当 既存取引全件
+        </div>
+      </div>
+
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">着手</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label" style="color:var(--accent-blue-lt)">アプローチ済</div>
+        <div class="kpi-value" style="color:var(--accent-blue-lt)">40<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">定義</div>
+          次のステップが設定済み
+        </div>
+        <div class="kpi-rate">カバー率 <strong style="color:var(--accent-blue-lt)">63%</strong></div>
+      </div>
+
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">アポ化</div>
+      </div>
+
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label" style="color:var(--accent-green)">アポ獲得</div>
+        <div class="kpi-value" style="color:var(--accent-green)">2<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">対象企業</div>
+          EMデバイス / フレクト
+        </div>
+        <div class="kpi-rate">獲得確率 <strong style="color:var(--accent-green)">5%</strong></div>
+      </div>
+    </div>
+
+    <div class="deals-section">
+      <div class="section-label">取引一覧 — 全63件</div>
+      <table class="deals-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>企業名</th>
+            <th>担当</th>
+            <th>ステータス</th>
+            <th>進捗・備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="deal-no">01</span></td><td><div class="deal-company">エスノーズ株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">02</span></td><td><div class="deal-company">株式会社サクソン・コーポレーション<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">西尾さん・藤さんに追加いただき、現地訪問完了。7月頃にヒアリングへ連絡する。</div></td></tr>
+          <tr><td><span class="deal-no">03</span></td><td><div class="deal-company">株式会社クラウドワークス</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">04</span></td><td><div class="deal-company">株式会社クロステック・マネジメント</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（コンタクト不可）</div></td></tr>
+          <tr><td><span class="deal-no">05</span></td><td><div class="deal-company">株式会社PortX</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">Dixcerの資料に載っているので調査中、対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">06</span></td><td><div class="deal-company">株式会社インテクリオン<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">07</span></td><td><div class="deal-company">三幸産業株式会社</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">08</span></td><td><div class="deal-company">株式会社ハルコン<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">09</span></td><td><div class="deal-company">booost technologies株式会社</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）※昨年からメール送付できない、Teams待ち</div></td></tr>
+          <tr><td><span class="deal-no">10</span></td><td><div class="deal-company">株式会社ＳＯＤＡ</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">11</span></td><td><div class="deal-company">医療法人社団 某会 某病院<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">12</span></td><td><div class="deal-company">株式会社コスモ・スペース</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">13</span></td><td><div class="deal-company">株式会社チェンジホールディングス<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">14</span></td><td><div class="deal-company">株式会社ノリ・ホールディングス<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">15</span></td><td><div class="deal-company">株式会社S-FIT</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">16</span></td><td><div class="deal-company">株式会社NADJA</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">17</span></td><td><div class="deal-company">三井株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">18</span></td><td><div class="deal-company">株式会社ハンリー<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">19</span></td><td><div class="deal-company">株式会社ノートルア<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-lost">失注</span></td><td><div class="deal-note">LOST</div></td></tr>
+          <tr><td><span class="deal-no">20</span></td><td><div class="deal-company">ニューテック株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）、8月に入ってメール送付できない、Teams</div></td></tr>
+          <tr><td><span class="deal-no">21</span></td><td><div class="deal-company">中国石油国際事業日本会社</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">22</span></td><td><div class="deal-company">株式会社ロケン<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">23</span></td><td><div class="deal-company">Shochiku Co. Ltd（松竹）</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">24</span></td><td><div class="deal-company">株式会社ブレッジワーク<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">25</span></td><td><div class="deal-company">株式会社湯山製作所</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">26</span></td><td><div class="deal-company">株式会社帝国データバンク</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">AIヘルプデスクのデスクトップアプリ以外で利用できるようになったら、名和さん・西尾さんに追加依頼</div></td></tr>
+          <tr><td><span class="deal-no">27</span></td><td><div class="deal-company">クリントビレッジ株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-lost">失注</span></td><td><div class="deal-note">lost、知っている情報と連絡待ち、NAの設定お願いします</div></td></tr>
+          <tr><td><span class="deal-no">28</span></td><td><div class="deal-company">株式会社 情報戦略テクノロジー<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">11月末までにフロントの担当が部長と話してツール選定、12/4に状況確認連絡</div></td></tr>
+          <tr><td><span class="deal-no">29</span></td><td><div class="deal-company">株式会社mov<span class="source-tag">New Deal</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">30</span></td><td><div class="deal-company">株式会社アルク<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">31</span></td><td><div class="deal-company">GMOグローバルサイン・ホールディングス株式会社</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">32</span></td><td><div class="deal-company">株式会社MiL</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">33</span></td><td><div class="deal-company">アリラトウ株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）、serviceNOW代行業者だが競合の可能性。数年ぶりにメール</div></td></tr>
+          <tr><td><span class="deal-no">34</span></td><td><div class="deal-company">ソフトバンク株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">35</span></td><td><div class="deal-company">まるごと株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">36</span></td><td><div class="deal-company">EMデバイス株式会社<span class="existing-tag">アポ獲得</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-appointment">アポ獲得</span></td><td><div class="deal-note">7/18までにツール選定、7/21週に回答</div></td></tr>
+          <tr><td><span class="deal-no">37</span></td><td><div class="deal-company">栃タンカー株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">8/8に社内で展開</div></td></tr>
+          <tr><td><span class="deal-no">38</span></td><td><div class="deal-company">プロアス株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">39</span></td><td><div class="deal-company">株式会社アイ・ホールディングス</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
+          <tr><td><span class="deal-no">40</span></td><td><div class="deal-company">株式会社博報館<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">リリース後に連絡</div></td></tr>
+          <tr><td><span class="deal-no">41</span></td><td><div class="deal-company">株式会社ログラス</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">6/17の週に連絡する</div></td></tr>
+          <tr><td><span class="deal-no">42</span></td><td><div class="deal-company">株式会社パクスト<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">43</span></td><td><div class="deal-company">株式会社スタイル・エッジ</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">44</span></td><td><div class="deal-company">Ubie株式会社<span class="source-tag">New Deal</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">45</span></td><td><div class="deal-company">株式会社東洋合<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">46</span></td><td><div class="deal-company">Demae-Can（出前館）<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">47</span></td><td><div class="deal-company">企画工房サイトロニクス<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">48</span></td><td><div class="deal-company">ティクレン情報サービス株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">49</span></td><td><div class="deal-company">株式会社Speee</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">50</span></td><td><div class="deal-company">株式会社ワークス・ジャパン</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">5月中に全ての会社とコミュニケーションが完了したので、6月に改めて連絡する</div></td></tr>
+          <tr><td><span class="deal-no">51</span></td><td><div class="deal-company">ブリヂストンタイヤ栃木販売株式会社</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">リリースなどの通知を定期的にメールで追う</div></td></tr>
+          <tr><td><span class="deal-no">52</span></td><td><div class="deal-company">株式会社ハリンズ<span class="source-tag">zooba / 要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">5/13 メッセンジャーで連絡済み</div></td></tr>
+          <tr><td><span class="deal-no">53</span></td><td><div class="deal-company">株式会社ライトワークス<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">SaaSデバイス管理ツールを検討中。殿下、今後も検討見込み想定</div></td></tr>
+          <tr><td><span class="deal-no">54</span></td><td><div class="deal-company">グノシー<span class="source-tag">zooba / 要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">一応やっていることをプロフィに追加お願いします。また、zoobaとして追ってもらう場合NAの設定お願いします。</div></td></tr>
+          <tr><td><span class="deal-no">55</span></td><td><div class="deal-company">Cynthialy<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">情報別件とzoobaのNA設定お願いします</div></td></tr>
+          <tr><td><span class="deal-no">56</span></td><td><div class="deal-company">株式会社アオリバ<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">一旦完了、コールセンター見込みややリゲル感の方だった</div></td></tr>
+          <tr><td><span class="deal-no">57</span></td><td><div class="deal-company">株式会社HRBrain<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">5月ぐらいに新担当に連絡→名和さん（井宮スケジューラー）※あるいは冨澤さん</div></td></tr>
+          <tr><td><span class="deal-no">58</span></td><td><div class="deal-company">株式会社エンパワー<span class="source-tag">zoooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">NA（予定）</div></td></tr>
+          <tr><td><span class="deal-no">59</span></td><td><div class="deal-company">Empac<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">60</span></td><td><div class="deal-company">ジュピターショップチャンネル株式会社<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">61</span></td><td><div class="deal-company">Digital Holdings, Inc<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">62</span></td><td><div class="deal-company">Chugoku Electric Power（中国電力）<span class="source-tag">zooba link</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
+          <tr><td><span class="deal-no">63</span></td><td><div class="deal-company">株式会社フレクト<span class="existing-tag">アポ獲得</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-appointment">アポ獲得</span></td><td><div class="deal-note">PDFになったから追加（別途確認）</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-grid" style="margin-top:24px">
+      <div class="insight-card full-width">
+        <div class="insight-label">注記</div>
+        <div class="insight-text">元データ（HubSpot CRMエクスポート）の一部文字コードが伝送中に欠損したため、「要確認」タグの企業名は正式名称と異なる可能性があります。最新のHubSpotデータで各社名の確認をお願いします。</div>
+      </div>
+    </div>
+
+  </div><!-- /tab-revival -->
 
   <!-- ━━━━ PHASE CONDITIONS MODAL ━━━━ -->
   <div id="phase-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
