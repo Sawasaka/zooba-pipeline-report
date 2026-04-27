@@ -993,6 +993,119 @@
     line-height: 1.5;
   }
 
+  /* ━━━━━━━━━━ SOURCE BREAKDOWN (展開行) ━━━━━━━━━━ */
+  .source-table tr.source-row { cursor: pointer; }
+  .source-table tr.source-row:hover { background: rgba(201,168,76,0.05); }
+
+  .source-table .expand-chevron {
+    display: inline-block;
+    margin-left: 10px;
+    width: 14px;
+    height: 14px;
+    color: var(--text-muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  .source-table tr.source-row:hover .expand-chevron { color: var(--gold); }
+  .source-table tr.source-row.open .expand-chevron {
+    transform: rotate(180deg);
+    color: var(--gold);
+  }
+
+  .source-table tr.source-detail-row { display: none; }
+  .source-table tr.source-detail-row.open { display: table-row; }
+  .source-table tr.source-detail-row > td {
+    background: rgba(0,0,0,0.18);
+    padding: 0 !important;
+    border: 1px solid var(--border-faint);
+    border-radius: 4px;
+  }
+
+  .breakdown-list {
+    padding: 4px 18px 16px;
+  }
+
+  .breakdown-row {
+    display: grid;
+    grid-template-columns: 1fr 140px 180px 130px;
+    align-items: start;
+    padding: 16px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+  }
+  .breakdown-row:last-child { border-bottom: none; }
+
+  .b-name {
+    position: relative;
+    padding-left: 28px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .b-name::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 12px;
+    height: 1px;
+    background: var(--text-muted);
+  }
+
+  .b-companies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .b-company {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-faint);
+    border-radius: 11px;
+    font-size: 10px;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+  .b-company.has-trial {
+    background: rgba(46,204,113,0.12);
+    border-color: rgba(46,204,113,0.4);
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+
+  .b-num {
+    text-align: right;
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .b-num.zero { color: rgba(255,255,255,0.35); }
+  .b-num .b-unit {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  .b-rate {
+    text-align: right;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .b-rate.highlight { color: var(--accent-green); font-weight: 600; }
+  .b-rate.zero { color: rgba(255,255,255,0.35); }
+
   /* ━━━━━━━━━━ EMPTY STATE ━━━━━━━━━━ */
   .empty-state {
     display: flex;
@@ -1591,42 +1704,198 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>WEB流入<span class="src-detail">HP / 無料トライアルフォーム</span></td>
+          <tr class="source-row" data-target="src-web">
+            <td>WEB流入<span class="src-detail">HP / 無料トライアルフォーム</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
             <td class="num">5<span class="num-unit">社</span></td>
             <td class="num">2<span class="num-unit">社</span></td>
             <td class="num rate-cell highlight">40%</td>
           </tr>
-          <tr>
-            <td>紹介<span class="src-detail">名和さん紹介</span></td>
+          <tr class="source-detail-row" id="src-web">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">HP
+                    <div class="b-companies">
+                      <span class="b-company has-trial">ユニソルホールディングス ✓</span>
+                      <span class="b-company">トゥインクルワールド株式会社</span>
+                      <span class="b-company">株式会社フレクト</span>
+                    </div>
+                  </div>
+                  <div class="b-num">3<span class="b-unit">社</span></div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">33%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">無料トライアルフォーム
+                    <div class="b-companies">
+                      <span class="b-company has-trial">サンテミナ株式会社 ✓</span>
+                      <span class="b-company">株式会社エクサウィザーズ</span>
+                    </div>
+                  </div>
+                  <div class="b-num">2<span class="b-unit">社</span></div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">50%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-intro">
+            <td>紹介<span class="src-detail">名和さん紹介</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
             <td class="num">4<span class="num-unit">社</span></td>
             <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
-          <tr>
-            <td>パートナー経由<span class="src-detail">後藤さん紹介 / 株式会社アシスト / オリックス・レンテック</span></td>
+          <tr class="source-detail-row" id="src-intro">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">名和さん紹介
+                    <div class="b-companies">
+                      <span class="b-company">フォーティエンスコンサルティング株式会社</span>
+                      <span class="b-company">株式会社ナビタイムジャパン</span>
+                      <span class="b-company">チームみらい</span>
+                      <span class="b-company">Aflac Ventures Japan</span>
+                    </div>
+                  </div>
+                  <div class="b-num">4<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-partner">
+            <td>パートナー経由<span class="src-detail">後藤さん紹介 / 株式会社アシスト / オリックス・レンテック</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
             <td class="num">3<span class="num-unit">社</span></td>
             <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
-          <tr>
-            <td>イベント<span class="src-detail">IT・情シス DXPO / デジタル化・DX推進展 / DXが一気に動き出す / Startup JAPAN EXPO</span></td>
+          <tr class="source-detail-row" id="src-partner">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">後藤さん紹介
+                    <div class="b-companies">
+                      <span class="b-company">株式会社ダイドウトランスプラネット</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">株式会社アシスト
+                    <div class="b-companies">
+                      <span class="b-company">株式会社MTG</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">オリックス・レンテック
+                    <div class="b-companies">
+                      <span class="b-company">株式会社DAY TO LIFE</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-event">
+            <td>イベント<span class="src-detail">IT・情シス DXPO / デジタル化・DX推進展 / DXが一気に動き出す / Startup JAPAN EXPO</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
             <td class="num">4<span class="num-unit">社</span></td>
             <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
-          <tr>
-            <td>媒体掲載<span class="src-detail">アイスマイリー / BOXIL</span></td>
+          <tr class="source-detail-row" id="src-event">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">IT・情シス DXPO
+                    <div class="b-companies">
+                      <span class="b-company">フューチャーセキュアウェイブ株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">デジタル化・DX推進展
+                    <div class="b-companies">
+                      <span class="b-company">ポールトゥウィン株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">DXが一気に動き出す
+                    <div class="b-companies">
+                      <span class="b-company">株式ガイアート</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">Startup JAPAN EXPO
+                    <div class="b-companies">
+                      <span class="b-company">渡邊建設株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-media">
+            <td>媒体掲載<span class="src-detail">アイスマイリー / BOXIL</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
             <td class="num">3<span class="num-unit">社</span></td>
             <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
-          <tr class="total-row">
-            <td>合計</td>
-            <td class="num">19<span class="num-unit">社</span></td>
-            <td class="num">2<span class="num-unit">社</span></td>
-            <td class="num rate-cell">10%</td>
+          <tr class="source-detail-row" id="src-media">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">アイスマイリー
+                    <div class="b-companies">
+                      <span class="b-company">豊田スチールセンター株式会社</span>
+                      <span class="b-company">株式会社NDT</span>
+                    </div>
+                  </div>
+                  <div class="b-num">2<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">BOXIL
+                    <div class="b-companies">
+                      <span class="b-company">EMデバイス株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
           </tr>
+
         </tbody>
       </table>
 
@@ -2298,6 +2567,18 @@
       }
     }, 16);
   }
+
+  // ── Source breakdown 展開 ──
+  document.querySelectorAll('.source-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const targetId = row.dataset.target;
+      if (!targetId) return;
+      const detail = document.getElementById(targetId);
+      if (!detail) return;
+      const isOpen = row.classList.toggle('open');
+      detail.classList.toggle('open', isOpen);
+    });
+  });
 
   // ── Tab switching ──
   document.querySelectorAll('.tab-btn').forEach(btn => {
