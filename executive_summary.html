@@ -581,17 +581,21 @@
   .status-pending { background: rgba(170,170,170,0.10); color: var(--text-muted); }
   .status-approached { background: rgba(139,167,188,0.12); color: #8BA7BC; }
   .status-appointment { background: rgba(201,168,76,0.15); color: var(--gold); }
+  .status-dropped { background: rgba(155,143,143,0.15); color: #9B8F8F; }
+  .status-trial   { background: rgba(201,168,76,0.15); color: var(--gold); }
   .status-won  { background: rgba(201,168,76,0.20); color: #DAA520; }
 
   /* ━━━━━━━━━━ OUTCOME CARDS ━━━━━━━━━━ */
   .outcome-row {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 40px;
   }
 
   .outcome-card {
-    flex: 1;
+    flex: 1 1 220px;
+    min-width: 220px;
     background: var(--navy-card);
     border: 1px solid var(--border-faint);
     border-radius: 6px;
@@ -608,8 +612,10 @@
     transform: translateY(-2px);
   }
 
-  .outcome-card.lost { border-left: 3px solid rgba(231,76,60,0.5); }
-  .outcome-card.won  { border-left: 3px solid rgba(46,204,113,0.5); }
+  .outcome-card.lost    { border-left: 3px solid rgba(231,76,60,0.5); }
+  .outcome-card.won     { border-left: 3px solid rgba(46,204,113,0.5); }
+  .outcome-card.trial   { border-left: 3px solid rgba(201,168,76,0.5); }
+  .outcome-card.dropped { border-left: 3px solid rgba(155,143,143,0.5); }
 
   .outcome-icon {
     width: 40px;
@@ -621,8 +627,10 @@
     flex-shrink: 0;
   }
 
-  .outcome-card.lost .outcome-icon { background: rgba(231,76,60,0.10); }
-  .outcome-card.won  .outcome-icon { background: rgba(46,204,113,0.10); }
+  .outcome-card.lost    .outcome-icon { background: rgba(231,76,60,0.10); }
+  .outcome-card.won     .outcome-icon { background: rgba(46,204,113,0.10); }
+  .outcome-card.trial   .outcome-icon { background: rgba(201,168,76,0.10); }
+  .outcome-card.dropped .outcome-icon { background: rgba(155,143,143,0.12); }
 
   .outcome-body { flex: 1; }
 
@@ -641,8 +649,10 @@
     line-height: 1;
   }
 
-  .outcome-card.lost .outcome-value { color: #E74C3C; }
-  .outcome-card.won  .outcome-value { color: #2ECC71; }
+  .outcome-card.lost    .outcome-value { color: #E74C3C; }
+  .outcome-card.won     .outcome-value { color: #2ECC71; }
+  .outcome-card.trial   .outcome-value { color: var(--gold); }
+  .outcome-card.dropped .outcome-value { color: #9B8F8F; }
 
   .outcome-value span {
     font-size: 14px;
@@ -689,8 +699,10 @@
     line-height: 1;
   }
 
-  .outcome-card.lost .outcome-rate strong { color: #E74C3C; }
-  .outcome-card.won  .outcome-rate strong { color: #2ECC71; }
+  .outcome-card.lost    .outcome-rate strong { color: #E74C3C; }
+  .outcome-card.won     .outcome-rate strong { color: #2ECC71; }
+  .outcome-card.trial   .outcome-rate strong { color: var(--gold); }
+  .outcome-card.dropped .outcome-rate strong { color: #9B8F8F; }
 
   .outcome-row { animation: fadeUp 0.6s ease 0.20s both; }
 
@@ -1250,16 +1262,16 @@
 
     <!-- Outcome Cards -->
     <div class="outcome-row">
-      <div class="outcome-card lost">
-        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="outcome-card trial">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
         <div class="outcome-body">
-          <div class="outcome-label">失注</div>
-          <div class="outcome-value">1<span>社</span></div>
-          <div class="outcome-rate">PJ進行比 <strong>14%</strong></div>
+          <div class="outcome-label">無料トライアル</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
         </div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">失注企業 — 1社</div>
-          <div class="tooltip-row red">フォーティエンスコンサルティング株式会社</div>
+          <div class="tooltip-label">トライアル中</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
       <div class="outcome-card won">
@@ -1272,6 +1284,30 @@
         <div class="kpi-tooltip">
           <div class="tooltip-label">契約企業</div>
           <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業（トライアル後・契約に至らず）</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card dropped">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l-5 5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">ロスト</div>
+          <div class="outcome-value">1<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>14%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">ロスト企業（トライアル前に離脱） — 1社</div>
+          <div class="tooltip-row red">フォーティエンスコンサルティング株式会社</div>
         </div>
       </div>
     </div>
@@ -1292,7 +1328,7 @@
           <tr>
             <td><span class="deal-no">01</span></td>
             <td><div class="deal-company">フォーティエンスコンサルティング株式会社</div><div class="deal-members">名和 / 沢坂 / 菊池<span class="source-tag">経由：名和リファラル</span></div></td>
-            <td><span class="status-badge status-lost">失注</span></td>
+            <td><span class="status-badge status-dropped">ロスト</span></td>
             <td><div class="deal-note">SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div></td>
           </tr>
           <tr>
@@ -1479,16 +1515,16 @@
 
     <!-- Outcome Cards -->
     <div class="outcome-row">
-      <div class="outcome-card lost">
-        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="outcome-card trial">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
         <div class="outcome-body">
-          <div class="outcome-label">失注</div>
-          <div class="outcome-value">1<span>社</span></div>
-          <div class="outcome-rate">PJ進行比 <strong>25%</strong></div>
+          <div class="outcome-label">無料トライアル</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
         </div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">失注企業 — 1社</div>
-          <div class="tooltip-row red">フォーティエンスコンサルティング株式会社</div>
+          <div class="tooltip-label">トライアル中</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
       <div class="outcome-card won">
@@ -1501,6 +1537,30 @@
         <div class="kpi-tooltip">
           <div class="tooltip-label">契約企業</div>
           <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業（トライアル後・契約に至らず）</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card dropped">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l-5 5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">ロスト</div>
+          <div class="outcome-value">1<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>25%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">ロスト企業（トライアル前に離脱） — 1社</div>
+          <div class="tooltip-row red">フォーティエンスコンサルティング株式会社</div>
         </div>
       </div>
     </div>
@@ -1521,7 +1581,7 @@
           <tr>
             <td><span class="deal-no">01</span></td>
             <td><div class="deal-company">フォーティエンスコンサルティング株式会社</div><div class="deal-members">名和 / 沢坂 / 菊池<span class="source-tag">経由：名和リファラル</span></div></td>
-            <td><span class="status-badge status-lost">失注</span></td>
+            <td><span class="status-badge status-dropped">ロスト</span></td>
             <td><div class="deal-note">SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div></td>
           </tr>
           <tr>
@@ -1677,15 +1737,15 @@
 
     <!-- Outcome Cards -->
     <div class="outcome-row">
-      <div class="outcome-card lost">
-        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="outcome-card trial">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
         <div class="outcome-body">
-          <div class="outcome-label">失注</div>
+          <div class="outcome-label">無料トライアル</div>
           <div class="outcome-value">0<span>社</span></div>
           <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
         </div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">失注企業</div>
+          <div class="tooltip-label">トライアル中</div>
           <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
@@ -1698,6 +1758,30 @@
         </div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">契約企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業（トライアル後・契約に至らず）</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card dropped">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l-5 5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">ロスト</div>
+          <div class="outcome-value">0<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>0%</strong></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">ロスト企業（トライアル前に離脱）</div>
           <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
         </div>
       </div>
@@ -1855,7 +1939,7 @@
           <tr><td><span class="deal-no">16</span></td><td><div class="deal-company">株式会社NADJA</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
           <tr><td><span class="deal-no">17</span></td><td><div class="deal-company">三井株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
           <tr><td><span class="deal-no">18</span></td><td><div class="deal-company">株式会社ハンリー<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
-          <tr><td><span class="deal-no">19</span></td><td><div class="deal-company">株式会社ノートルア<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-lost">失注</span></td><td><div class="deal-note">LOST</div></td></tr>
+          <tr><td><span class="deal-no">19</span></td><td><div class="deal-company">株式会社ノートルア<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-dropped">ロスト</span></td><td><div class="deal-note">LOST</div></td></tr>
           <tr><td><span class="deal-no">20</span></td><td><div class="deal-company">ニューテック株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）、8月に入ってメール送付できない、Teams</div></td></tr>
           <tr><td><span class="deal-no">21</span></td><td><div class="deal-company">中国石油国際事業日本会社</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
           <tr><td><span class="deal-no">22</span></td><td><div class="deal-company">株式会社ロケン<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
@@ -1863,7 +1947,7 @@
           <tr><td><span class="deal-no">24</span></td><td><div class="deal-company">株式会社ブレッジワーク<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
           <tr><td><span class="deal-no">25</span></td><td><div class="deal-company">株式会社湯山製作所</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">対応済み（連絡待ち）</div></td></tr>
           <tr><td><span class="deal-no">26</span></td><td><div class="deal-company">株式会社帝国データバンク</div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">AIヘルプデスクのデスクトップアプリ以外で利用できるようになったら、名和さん・西尾さんに追加依頼</div></td></tr>
-          <tr><td><span class="deal-no">27</span></td><td><div class="deal-company">クリントビレッジ株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-lost">失注</span></td><td><div class="deal-note">lost、知っている情報と連絡待ち、NAの設定お願いします</div></td></tr>
+          <tr><td><span class="deal-no">27</span></td><td><div class="deal-company">クリントビレッジ株式会社<span class="source-tag">要確認</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-dropped">ロスト</span></td><td><div class="deal-note">lost、知っている情報と連絡待ち、NAの設定お願いします</div></td></tr>
           <tr><td><span class="deal-no">28</span></td><td><div class="deal-company">株式会社 情報戦略テクノロジー<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-approached">アプローチ済</span></td><td><div class="deal-note">11月末までにフロントの担当が部長と話してツール選定、12/4に状況確認連絡</div></td></tr>
           <tr><td><span class="deal-no">29</span></td><td><div class="deal-company">株式会社mov<span class="source-tag">New Deal</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
           <tr><td><span class="deal-no">30</span></td><td><div class="deal-company">株式会社アルク<span class="source-tag">zooba</span></div></td><td><div class="deal-members">沢坂</div></td><td><span class="status-badge status-pending">未アプローチ</span></td><td><div class="deal-note">—</div></td></tr>
