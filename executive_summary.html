@@ -859,6 +859,82 @@
     line-height: 1.65;
   }
 
+  /* ━━━━━━━━━━ SOURCE ANALYSIS ━━━━━━━━━━ */
+  .source-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+    margin-bottom: 24px;
+  }
+
+  .source-table th {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-faint);
+  }
+
+  .source-table th.num,
+  .source-table td.num { text-align: right; }
+
+  .source-table tbody tr {
+    background: var(--navy-card);
+    transition: background 0.3s;
+  }
+
+  .source-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+  .source-table td {
+    padding: 14px 12px;
+    font-size: 13px;
+    color: var(--text-primary);
+    border-top: 1px solid var(--border-faint);
+    border-bottom: 1px solid var(--border-faint);
+  }
+
+  .source-table td:first-child {
+    border-left: 1px solid var(--border-faint);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .source-table td:last-child {
+    border-right: 1px solid var(--border-faint);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .source-table .rate-cell {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .source-table .rate-cell.highlight { color: var(--accent-green); font-weight: 500; }
+  .source-table .rate-cell.zero { color: var(--text-muted); }
+
+  .source-table tbody tr.total-row {
+    background: rgba(201,168,76,0.05);
+  }
+
+  .source-table tbody tr.total-row td {
+    color: var(--gold);
+    font-weight: 600;
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .source-table .src-detail {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
   /* ━━━━━━━━━━ EMPTY STATE ━━━━━━━━━━ */
   .empty-state {
     display: flex;
@@ -1428,6 +1504,74 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- 経由元別 無料トライアル移行率 -->
+    <div class="deals-section">
+      <div class="section-label">経由元別 無料トライアル移行率</div>
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>経由元カテゴリ</th>
+            <th class="num">取得社数</th>
+            <th class="num">無料トライアル到達</th>
+            <th class="num">移行率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WEB流入<span class="src-detail">HP / 無料トライアルフォーム</span></td>
+            <td class="num">4</td>
+            <td class="num">1</td>
+            <td class="num rate-cell highlight">25%</td>
+          </tr>
+          <tr>
+            <td>紹介（社員）<span class="src-detail">名和さん紹介 / 後藤さん紹介</span></td>
+            <td class="num">5</td>
+            <td class="num">0</td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr>
+            <td>パートナー経由<span class="src-detail">株式会社アシストパートナー / オリックス・レンテック</span></td>
+            <td class="num">2</td>
+            <td class="num">0</td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr>
+            <td>イベント<span class="src-detail">IT・情シス DXPO / デジタル化・DX推進展 / DXが一気に動き出す / Startup JAPAN EXPO</span></td>
+            <td class="num">4</td>
+            <td class="num">0</td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr>
+            <td>媒体掲載<span class="src-detail">アイスマイリー / BOXIL</span></td>
+            <td class="num">2</td>
+            <td class="num">0</td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr class="total-row">
+            <td>合計</td>
+            <td class="num">17</td>
+            <td class="num">1</td>
+            <td class="num rate-cell">6%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight-grid" style="margin-top:16px">
+        <div class="insight-card">
+          <div class="insight-label">最多獲得チャネル</div>
+          <div class="insight-text">紹介経由（社員＋パートナー）で計7社。母数最大だがトライアル移行は0社。商談化〜トライアル前段階で停滞。</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label">最高移行率</div>
+          <div class="insight-text">WEB流入が25%（4社中1社）。獲得母数は少ないが質の高いリードが含まれる可能性。</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label">注視点</div>
+          <div class="insight-text">イベント4社・媒体掲載2社からのトライアル移行が現状ゼロ。費用対効果の中期的な評価が必要。</div>
+        </div>
+      </div>
     </div>
 
   </div><!-- /tab-all -->
