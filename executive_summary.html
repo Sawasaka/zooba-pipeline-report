@@ -865,7 +865,17 @@
     border-collapse: separate;
     border-spacing: 0 8px;
     margin-bottom: 24px;
+    table-layout: fixed;
   }
+
+  .source-table th:nth-child(1),
+  .source-table td:nth-child(1) { width: auto; }
+  .source-table th:nth-child(2),
+  .source-table td:nth-child(2) { width: 140px; }
+  .source-table th:nth-child(3),
+  .source-table td:nth-child(3) { width: 180px; }
+  .source-table th:nth-child(4),
+  .source-table td:nth-child(4) { width: 130px; }
 
   .source-table th {
     font-size: 10px;
@@ -895,14 +905,29 @@
     border-top: 1px solid var(--border-faint);
     border-bottom: 1px solid var(--border-faint);
     font-weight: 500;
+    vertical-align: middle;
   }
 
   .source-table td.num {
     font-family: var(--serif);
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 400;
     color: var(--text-primary);
     letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .source-table td.num .num-unit {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .source-table td.num.zero-num {
+    color: rgba(255,255,255,0.35);
   }
 
   .source-table td:first-child {
@@ -917,29 +942,44 @@
 
   .source-table .rate-cell {
     font-family: var(--serif);
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 500;
+    line-height: 1;
   }
 
   .source-table .rate-cell.highlight {
     color: var(--accent-green);
     font-weight: 600;
+    background: linear-gradient(90deg, transparent 0%, rgba(46,204,113,0.08) 100%);
   }
-  .source-table .rate-cell.zero { color: var(--text-muted); }
+  .source-table .rate-cell.zero {
+    color: rgba(255,255,255,0.35);
+  }
 
   .source-table tbody tr.total-row {
-    background: rgba(201,168,76,0.07);
+    background: rgba(201,168,76,0.08);
   }
 
   .source-table tbody tr.total-row td {
     color: var(--gold);
     font-weight: 600;
-    border-color: rgba(201,168,76,0.35);
+    border-color: rgba(201,168,76,0.4);
   }
 
   .source-table tbody tr.total-row td.num {
     color: var(--gold);
-    font-size: 22px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .source-table tbody tr.total-row td.num .num-unit {
+    color: rgba(201,168,76,0.7);
+  }
+
+  .source-table tbody tr.total-row .rate-cell {
+    color: var(--gold);
+    font-size: 28px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.12) 100%);
   }
 
   .source-table .src-detail {
@@ -1360,12 +1400,13 @@
         <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
         <div class="outcome-body">
           <div class="outcome-label">無料トライアル</div>
-          <div class="outcome-value">1<span>社</span></div>
-          <div class="outcome-rate">PJ進行比 <strong>14%</strong></div>
+          <div class="outcome-value">2<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>28%</strong></div>
         </div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">トライアル中 — 1社</div>
+          <div class="tooltip-label">トライアル到達 — 2社（累積）</div>
           <div class="tooltip-row gold">ユニソルホールディングス</div>
+          <div class="tooltip-row gold">サンテミナ株式会社</div>
         </div>
       </div>
       <div class="outcome-card won">
@@ -1552,39 +1593,39 @@
         <tbody>
           <tr>
             <td>WEB流入<span class="src-detail">HP / 無料トライアルフォーム</span></td>
-            <td class="num">5</td>
-            <td class="num">1</td>
-            <td class="num rate-cell highlight">20%</td>
+            <td class="num">5<span class="num-unit">社</span></td>
+            <td class="num">2<span class="num-unit">社</span></td>
+            <td class="num rate-cell highlight">40%</td>
           </tr>
           <tr>
-            <td>紹介（社員）<span class="src-detail">名和さん紹介</span></td>
-            <td class="num">4</td>
-            <td class="num">0</td>
+            <td>紹介<span class="src-detail">名和さん紹介</span></td>
+            <td class="num">4<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
           <tr>
             <td>パートナー経由<span class="src-detail">後藤さん紹介 / 株式会社アシスト / オリックス・レンテック</span></td>
-            <td class="num">3</td>
-            <td class="num">0</td>
+            <td class="num">3<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
           <tr>
             <td>イベント<span class="src-detail">IT・情シス DXPO / デジタル化・DX推進展 / DXが一気に動き出す / Startup JAPAN EXPO</span></td>
-            <td class="num">4</td>
-            <td class="num">0</td>
+            <td class="num">4<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
           <tr>
             <td>媒体掲載<span class="src-detail">アイスマイリー / BOXIL</span></td>
-            <td class="num">3</td>
-            <td class="num">0</td>
+            <td class="num">3<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
             <td class="num rate-cell zero">0%</td>
           </tr>
           <tr class="total-row">
             <td>合計</td>
-            <td class="num">19</td>
-            <td class="num">1</td>
-            <td class="num rate-cell">5%</td>
+            <td class="num">19<span class="num-unit">社</span></td>
+            <td class="num">2<span class="num-unit">社</span></td>
+            <td class="num rate-cell">10%</td>
           </tr>
         </tbody>
       </table>
@@ -1677,12 +1718,13 @@
         <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
         <div class="outcome-body">
           <div class="outcome-label">無料トライアル</div>
-          <div class="outcome-value">1<span>社</span></div>
-          <div class="outcome-rate">PJ進行比 <strong>25%</strong></div>
+          <div class="outcome-value">2<span>社</span></div>
+          <div class="outcome-rate">PJ進行比 <strong>50%</strong></div>
         </div>
         <div class="kpi-tooltip">
-          <div class="tooltip-label">トライアル中 — 1社</div>
+          <div class="tooltip-label">トライアル到達 — 2社（累積）</div>
           <div class="tooltip-row gold">ユニソルホールディングス</div>
+          <div class="tooltip-row gold">サンテミナ株式会社</div>
         </div>
       </div>
       <div class="outcome-card won">
