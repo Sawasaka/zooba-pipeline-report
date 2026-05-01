@@ -1938,6 +1938,31 @@
   <!-- ══════════════════════════════════════════ -->
   <div id="tab-direct" class="tab-panel">
 
+    <!-- Executive Summary -->
+    <div class="exec-summary" id="exec-summary-direct">
+      <div class="section-label">エグゼクティブサマリー</div>
+      <div class="exec-summary-grid">
+        <div class="exec-field">
+          <div class="exec-field-label">結論</div>
+          <select id="exec-verdict-direct" class="exec-select">
+            <option value="">—</option>
+            <option value="順調">順調</option>
+            <option value="要注意">要注意</option>
+            <option value="遅延">遅延</option>
+          </select>
+        </div>
+        <div class="exec-field">
+          <div class="exec-field-label">Next</div>
+          <textarea id="exec-next-direct" class="exec-textarea" placeholder="次に取るべきアクション" rows="3"></textarea>
+        </div>
+        <div class="exec-field">
+          <div class="exec-field-label">助けが必要な1点</div>
+          <textarea id="exec-help-direct" class="exec-textarea" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="exec-saved-hint" id="exec-saved-hint-direct">保存しました</div>
+    </div>
+
     <div class="section-label">商談パイプライン — ダイレクト案件</div>
 
     <div class="kpi-flow">
@@ -3438,13 +3463,12 @@
   });
 
   // ── Executive Summary (localStorage) ──
-  (function() {
-    const STORAGE_KEY = 'zooba_exec_summary_v1';
-    const summary = document.getElementById('exec-summary');
-    const verdict = document.getElementById('exec-verdict');
-    const nextEl  = document.getElementById('exec-next');
-    const helpEl  = document.getElementById('exec-help');
-    const hint    = document.getElementById('exec-saved-hint');
+  function initExecSummary(suffix, storageKey) {
+    const summary = document.getElementById('exec-summary' + suffix);
+    const verdict = document.getElementById('exec-verdict' + suffix);
+    const nextEl  = document.getElementById('exec-next' + suffix);
+    const helpEl  = document.getElementById('exec-help' + suffix);
+    const hint    = document.getElementById('exec-saved-hint' + suffix);
     if (!summary || !verdict || !nextEl || !helpEl) return;
 
     function applyVerdictStyle() {
@@ -3460,7 +3484,7 @@
 
     function load() {
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
+        const raw = localStorage.getItem(storageKey);
         if (raw) {
           const data = JSON.parse(raw);
           verdict.value = data.verdict || '';
@@ -3475,6 +3499,7 @@
 
     let hintTimer;
     function showSavedHint() {
+      if (!hint) return;
       hint.classList.add('show');
       clearTimeout(hintTimer);
       hintTimer = setTimeout(() => hint.classList.remove('show'), 1200);
@@ -3491,7 +3516,7 @@
           help:    helpEl.value,
         };
         try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          localStorage.setItem(storageKey, JSON.stringify(data));
           showSavedHint();
         } catch (e) {}
       }, 250);
@@ -3503,7 +3528,10 @@
     window.addEventListener('resize', () => { autoGrow(nextEl); autoGrow(helpEl); });
 
     load();
-  })();
+  }
+
+  initExecSummary('', 'zooba_exec_summary_v1');
+  initExecSummary('-direct', 'zooba_exec_summary_direct_v1');
 </script>
 
 </body>
