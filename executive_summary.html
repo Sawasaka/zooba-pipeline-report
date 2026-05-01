@@ -1384,6 +1384,8 @@
   <!-- ━━━━ TABS ━━━━ -->
   <div class="tab-bar">
     <button class="tab-btn active" data-tab="all">全体</button>
+    <button class="tab-btn" data-tab="direct">ダイレクト</button>
+    <button class="tab-btn" data-tab="partner">パートナー</button>
     <button class="tab-btn" data-tab="mar">2026年3月</button>
     <button class="tab-btn" data-tab="apr">2026年4月</button>
     <button class="tab-btn" data-tab="may">2026年5月</button>
@@ -1922,6 +1924,698 @@
     </div>
 
   </div><!-- /tab-all -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--               ダイレクト TAB                  -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="tab-direct" class="tab-panel">
+
+    <div class="section-label">商談パイプライン — ダイレクト案件 <button class="help-btn" onclick="document.getElementById('phase-modal').classList.add('open')">認定条件とは？</button></div>
+
+    <div class="kpi-flow">
+      <div class="kpi-card">
+        <div class="kpi-label" style="color:var(--gold)">有効商談数</div>
+        <div class="kpi-value">18<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">認定条件</div>
+          導入検討中
+        </div>
+        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">55%</strong></div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">PJ可能案件未移行 — 5社</div>
+          <div class="tooltip-row gold">ポールトゥウィン株式会社</div>
+          <div class="tooltip-row gold">豊田スチールセンター株式会社</div>
+          <div class="tooltip-row gold">株式会社ナビタイムジャパン</div>
+          <div class="tooltip-row gold">株式会社フレクト</div>
+          <div class="tooltip-row gold">株式会社エクサウィザーズ</div>
+        </div>
+      </div>
+
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">PJ化</div>
+      </div>
+
+      <div class="kpi-card" data-accent="blue">
+        <div class="kpi-label" style="color:var(--accent-blue)">PJ可能案件</div>
+        <div class="kpi-value" style="color:var(--accent-blue)">13<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">認定条件</div>
+          推進可能
+        </div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-blue)">72%</strong></div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">対象企業 — 3社</div>
+          <div class="tooltip-row blue">Aflac Ventures Japan</div>
+          <div class="tooltip-row blue">EMデバイス株式会社</div>
+          <div class="tooltip-row blue">渡邊建設株式会社</div>
+        </div>
+      </div>
+
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">POC</div>
+      </div>
+
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label" style="color:var(--accent-green)">PJ進行</div>
+        <div class="kpi-value" style="color:var(--accent-green)">10<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">認定条件</div>
+          トライアル申込 / 2回目商談
+        </div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-green)">76%</strong></div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">PJ進行中 — 5社</div>
+          <div class="tooltip-row green">フューチャーセキュアウェイブ株式会社</div>
+          <div class="tooltip-row green">チームみらい</div>
+          <div class="tooltip-row green">ネミー株式会社</div>
+          <div class="tooltip-row green">株式会社NDT</div>
+          <div class="tooltip-row green">GMOコネクト株式会社</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome Cards -->
+    <div class="outcome-row">
+      <div class="outcome-card trial">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">検証</div>
+          <div class="outcome-value">3<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">トライアル中 — 3社</div>
+          <div class="tooltip-row gold">ユニソルホールディングス</div>
+          <div class="tooltip-row gold">トゥインクルワールド株式会社</div>
+          <div class="tooltip-row gold">株式ガイアート</div>
+        </div>
+      </div>
+      <div class="outcome-card won">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">契約</div>
+          <div class="outcome-value">0<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">契約企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">0<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業（検証後）</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card dropped">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l-5 5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">ロスト</div>
+          <div class="outcome-value">2<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">ロスト企業（検証前） — 2社</div>
+          <div class="tooltip-row red">フォーティエンスコンサルティング株式会社</div>
+          <div class="tooltip-row red">サンテミナ株式会社</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deals Table -->
+    <div class="deals-section">
+      <div class="section-label">ダイレクト案件一覧 — 全件</div>
+      <table class="deals-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>企業名 / 担当</th>
+            <th>ステータス</th>
+            <th>進捗・備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="deal-no">01</span></td>
+            <td><div class="deal-company">フォーティエンスコンサルティング株式会社</div><div class="deal-members">名和 / 沢坂 / 菊池<span class="source-tag">名和さん紹介</span></div></td>
+            <td><span class="status-badge status-dropped">ロスト</span></td>
+            <td><div class="deal-note">SKYSEAでログ活用をメインに使用し、デバイス管理もSKYSEAで一元管理が可能なため。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">02</span></td>
+            <td><div class="deal-company">サンテミナ株式会社</div><div class="deal-members">井之上 / 沢坂<span class="source-tag">無料トライアルフォーム</span></div></td>
+            <td><span class="status-badge status-dropped">ロスト</span></td>
+            <td><div class="deal-note">Status：無料トライアル申込済み・セットアップ済み。検証には至らず。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">03</span></td>
+            <td><div class="deal-company">フューチャーセキュアウェイブ株式会社</div><div class="deal-members">名和 / 菊池 / 沢坂<span class="source-tag">IT・情シス DXPO</span></div></td>
+            <td><span class="status-badge status-ph5">PJ進行</span></td>
+            <td><div class="deal-note">Status：POC中。Next：5月にセットアップ商談提案予定。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">04</span></td>
+            <td><div class="deal-company">ユニソルホールディングス</div><div class="deal-members">沢坂<span class="source-tag">HP</span></div></td>
+            <td><span class="status-badge status-trial">検証</span></td>
+            <td><div class="deal-note">Status：無料トライアル実施中。Next：運用状況と導入ご意向の確認。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">05</span></td>
+            <td><div class="deal-company">ポールトゥウィン株式会社</div><div class="deal-members">井之上 / 沢坂<span class="source-tag">デジタル化・DX推進展</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">Status：新規商談完了。Next：エージェント領域および部門ごとの閲覧制限完了次第、ご連絡。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">06</span></td>
+            <td><div class="deal-company">豊田スチールセンター株式会社</div><div class="deal-members">新海 / 沢坂<span class="source-tag">アイスマイリー</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">Status：親会社グローバル権限の承認待ち。Next：一度連絡しリマインド予定。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">07</span></td>
+            <td><div class="deal-company">株式ガイアート</div><div class="deal-members">沢坂 / 新海<span class="source-tag">DXが一気に動き出す（イベント）</span></div></td>
+            <td><span class="status-badge status-trial">検証</span></td>
+            <td><div class="deal-note">4月分。Status：無料トライアル申込済み・検証中。Next：推進者含むステークホルダー全体商談。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">08</span></td>
+            <td><div class="deal-company">トゥインクルワールド株式会社</div><div class="deal-members">沢坂 / 新海<span class="source-tag">HP</span></div></td>
+            <td><span class="status-badge status-trial">検証</span></td>
+            <td><div class="deal-note">4月分。Status：新規商談完了、5社コンペ中（ジョーシス含む）。Next：5月セットアップ商談実施 → コンペ最終企業として検討予定。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">09</span></td>
+            <td><div class="deal-company">株式会社ナビタイムジャパン</div><div class="deal-members">名和 / 沢坂<span class="source-tag">名和さん紹介</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">4月分。資産管理：ニーズあり / AIヘルプデスク：内製化済みのためニーズなし。Next：エージェント領域が一段落後、最小限の再商談を検討。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">10</span></td>
+            <td><div class="deal-company">株式会社フレクト<span class="existing-tag">既存掘り起こし</span></div><div class="deal-members">沢坂<span class="source-tag">HP</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">4月分。Status：既存案件掘り起こし商談完了、金額提案済み。Next：資産管理で前向き検討の場合、先方からの連絡待ち。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">11</span></td>
+            <td><div class="deal-company">チームみらい</div><div class="deal-members">名和 / 沢坂<span class="source-tag">名和さん紹介</span></div></td>
+            <td><span class="status-badge status-ph5">PJ進行</span></td>
+            <td><div class="deal-note">4月分。Status：商談完了、POC中。Next：導入ご意向の確認。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">12</span></td>
+            <td><div class="deal-company">Aflac Ventures Japan</div><div class="deal-members">名和 / 沢坂<span class="source-tag">名和さん紹介</span></div></td>
+            <td><span class="status-badge status-ph4">PJ可能案件</span></td>
+            <td><div class="deal-note">4月分。Status：商談完了、情シスの方をご紹介いただいている。Next：VCの連絡先を外し、GW明けにセットアップ商談の日程調整。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">13</span></td>
+            <td><div class="deal-company">EMデバイス株式会社<span class="existing-tag">既存掘り起こし</span></div><div class="deal-members">沢坂<span class="source-tag">BOXIL</span></div></td>
+            <td><span class="status-badge status-ph4">PJ可能案件</span></td>
+            <td><div class="deal-note">4月分。Status：上長承認プロセス中、多数の複数コンペ案件。Next：4月24日までの連絡待ち（自分から連絡NG）。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">14</span></td>
+            <td><div class="deal-company">渡邊建設株式会社</div><div class="deal-members">沢坂<span class="source-tag">Startup JAPAN EXPO</span></div></td>
+            <td><span class="status-badge status-ph4">PJ可能案件</span></td>
+            <td><div class="deal-note">4月分。Status：日程調整中。Next：BPO + zoobaセット提案（後藤さんアサイン依頼）。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">15</span></td>
+            <td><div class="deal-company">株式会社エクサウィザーズ</div><div class="deal-members">沢坂 / 新海<span class="source-tag">無料トライアルフォーム</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">4月分。Status：来年の導入タイミングに合わせた再商談のご調整。Next：7月再連絡。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">16</span></td>
+            <td><div class="deal-company">株式会社NDT</div><div class="deal-members">沢坂<span class="source-tag">アイスマイリー</span></div></td>
+            <td><span class="status-badge status-ph5">PJ進行</span></td>
+            <td><div class="deal-note">4月分。Status：無料トライアル申し込み済み。会社方針変更によりヘルプデスクPJは中断。Next：連絡待ち。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">17</span></td>
+            <td><div class="deal-company">ネミー株式会社</div><div class="deal-members">沢坂 / 井之上<span class="source-tag">Startup JAPAN EXPO</span></div></td>
+            <td><span class="status-badge status-ph5">PJ進行</span></td>
+            <td><div class="deal-note">4月分。Status：2回目商談予定（ダイレクト&外販）。Next：要件定義・セットアップサポート・上申資料の手配（KPI・AI精度・ROI）。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">18</span></td>
+            <td><div class="deal-company">GMOコネクト株式会社</div><div class="deal-members">沢坂<span class="source-tag">Startup JAPAN EXPO</span></div></td>
+            <td><span class="status-badge status-ph5">PJ進行</span></td>
+            <td><div class="deal-note">5月分。Next：代表とのMTG。</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 経由元別 無料トライアル移行率 -->
+    <div class="deals-section">
+      <div class="section-label">無料トライアル移行率</div>
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>経由元カテゴリ</th>
+            <th class="num">取得社数</th>
+            <th class="num">トライアル申し込み</th>
+            <th class="num">移行率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="source-row" data-target="src-direct-web">
+            <td>WEB流入<span class="src-detail">HP / 無料トライアルフォーム</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">5<span class="num-unit">社</span></td>
+            <td class="num">3<span class="num-unit">社</span></td>
+            <td class="num rate-cell highlight">60%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-direct-web">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">HP
+                    <div class="b-companies">
+                      <span class="b-company has-trial">ユニソルホールディングス ✓</span>
+                      <span class="b-company has-trial">トゥインクルワールド株式会社 ✓</span>
+                      <span class="b-company">株式会社フレクト</span>
+                    </div>
+                  </div>
+                  <div class="b-num">3<span class="b-unit">社</span></div>
+                  <div class="b-num">2<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">66%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">無料トライアルフォーム
+                    <div class="b-companies">
+                      <span class="b-company has-trial">サンテミナ株式会社 ✓</span>
+                      <span class="b-company">株式会社エクサウィザーズ</span>
+                    </div>
+                  </div>
+                  <div class="b-num">2<span class="b-unit">社</span></div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">50%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-direct-intro">
+            <td>紹介<span class="src-detail">名和さん紹介</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">4<span class="num-unit">社</span></td>
+            <td class="num">2<span class="num-unit">社</span></td>
+            <td class="num rate-cell highlight">50%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-direct-intro">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">名和さん紹介
+                    <div class="b-companies">
+                      <span class="b-company has-trial">フォーティエンスコンサルティング株式会社 ✓</span>
+                      <span class="b-company">株式会社ナビタイムジャパン</span>
+                      <span class="b-company has-trial">チームみらい ✓</span>
+                      <span class="b-company">Aflac Ventures Japan</span>
+                    </div>
+                  </div>
+                  <div class="b-num">4<span class="b-unit">社</span></div>
+                  <div class="b-num">2<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">50%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-direct-event">
+            <td>イベント<span class="src-detail">IT・情シス DXPO / デジタル化・DX推進展 / DXが一気に動き出す / Startup JAPAN EXPO</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">6<span class="num-unit">社</span></td>
+            <td class="num">2<span class="num-unit">社</span></td>
+            <td class="num rate-cell highlight">33%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-direct-event">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">IT・情シス DXPO
+                    <div class="b-companies">
+                      <span class="b-company has-trial">フューチャーセキュアウェイブ株式会社 ✓</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">100%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">デジタル化・DX推進展
+                    <div class="b-companies">
+                      <span class="b-company">ポールトゥウィン株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">DXが一気に動き出す
+                    <div class="b-companies">
+                      <span class="b-company has-trial">株式ガイアート ✓</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">100%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">Startup JAPAN EXPO
+                    <div class="b-companies">
+                      <span class="b-company">渡邊建設株式会社</span>
+                      <span class="b-company">ネミー株式会社</span>
+                      <span class="b-company">GMOコネクト株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">3<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-direct-media">
+            <td>媒体掲載<span class="src-detail">アイスマイリー / BOXIL</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">3<span class="num-unit">社</span></td>
+            <td class="num">1<span class="num-unit">社</span></td>
+            <td class="num rate-cell highlight">33%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-direct-media">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">アイスマイリー
+                    <div class="b-companies">
+                      <span class="b-company">豊田スチールセンター株式会社</span>
+                      <span class="b-company has-trial">株式会社NDT ✓</span>
+                    </div>
+                  </div>
+                  <div class="b-num">2<span class="b-unit">社</span></div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-rate highlight">50%</div>
+                </div>
+                <div class="breakdown-row">
+                  <div class="b-name">BOXIL
+                    <div class="b-companies">
+                      <span class="b-company">EMデバイス株式会社</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="total-row">
+            <td>合計</td>
+            <td class="num">18<span class="num-unit">社</span></td>
+            <td class="num">7<span class="num-unit">社</span></td>
+            <td class="num rate-cell">38%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /tab-direct -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--               パートナー TAB                  -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="tab-partner" class="tab-panel">
+
+    <div class="section-label">商談パイプライン — パートナー案件 <button class="help-btn" onclick="document.getElementById('phase-modal').classList.add('open')">認定条件とは？</button></div>
+
+    <div class="kpi-flow">
+      <div class="kpi-card">
+        <div class="kpi-label" style="color:var(--gold)">有効商談数</div>
+        <div class="kpi-value">4<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">認定条件</div>
+          導入検討中
+        </div>
+        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">0%</strong></div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">PJ可能案件未移行 — 2社</div>
+          <div class="tooltip-row gold">株式会社ダイドウトランスプラネット</div>
+          <div class="tooltip-row gold">株式会社MTG</div>
+        </div>
+      </div>
+
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">PJ化</div>
+      </div>
+
+      <div class="kpi-card" data-accent="blue">
+        <div class="kpi-label" style="color:var(--accent-blue)">PJ可能案件</div>
+        <div class="kpi-value" style="color:var(--accent-blue)">2<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">認定条件</div>
+          推進可能
+        </div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-blue)">50%</strong></div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">対象企業 — 2社</div>
+          <div class="tooltip-row blue">株式会社DAY TO LIFE</div>
+          <div class="tooltip-row blue">Trust Base株式会社</div>
+        </div>
+      </div>
+
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">POC</div>
+      </div>
+
+      <div class="kpi-card" data-accent="green">
+        <div class="kpi-label" style="color:var(--accent-green)">PJ進行</div>
+        <div class="kpi-value" style="color:var(--accent-green)">0<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">認定条件</div>
+          トライアル申込 / 2回目商談
+        </div>
+        <div class="kpi-rate">移行率 <strong style="color:var(--accent-green)">0%</strong></div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">PJ進行中</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome Cards -->
+    <div class="outcome-row">
+      <div class="outcome-card trial">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">検証</div>
+          <div class="outcome-value">0<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">トライアル中</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card won">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">契約</div>
+          <div class="outcome-value">0<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">契約企業</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card lost">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">失注</div>
+          <div class="outcome-value">0<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">失注企業（検証後）</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+      <div class="outcome-card dropped">
+        <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l-5 5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="outcome-body">
+          <div class="outcome-label">ロスト</div>
+          <div class="outcome-value">0<span>社</span></div>
+        </div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">ロスト企業（検証前）</div>
+          <div class="tooltip-row" style="color:var(--text-muted);border-color:transparent">該当なし</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deals Table -->
+    <div class="deals-section">
+      <div class="section-label">パートナー案件一覧 — 全件</div>
+      <table class="deals-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>企業名 / 担当</th>
+            <th>ステータス</th>
+            <th>進捗・備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="deal-no">01</span></td>
+            <td><div class="deal-company">株式会社ダイドウトランスプラネット<span class="partner-tag">パートナー</span></div><div class="deal-members">後藤<span class="source-tag">後藤さん紹介</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">3月分。Status：M365導入待ち。Next：後藤さんからの連絡待ち → 資産管理＋AIヘルプデスク着手。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">02</span></td>
+            <td><div class="deal-company">株式会社MTG<span class="partner-tag">パートナー</span></div><div class="deal-members">名和 / 沢坂<span class="source-tag">株式会社アシスト</span></div></td>
+            <td><span class="status-badge status-ph3">有効商談</span></td>
+            <td><div class="deal-note">3月分。Status：RFP対応中。Next：後藤さんからの連絡待ち。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">03</span></td>
+            <td><div class="deal-company">株式会社DAY TO LIFE<span class="partner-tag">パートナー</span></div><div class="deal-members">後藤<span class="source-tag">オリックス・レンテック</span></div></td>
+            <td><span class="status-badge status-ph4">PJ可能案件</span></td>
+            <td><div class="deal-note">4月分。Status：AIと資産管理領域で料金問い合わせまで完了。Next：後藤さんからの連絡待ち。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">04</span></td>
+            <td><div class="deal-company">Trust Base株式会社<span class="partner-tag">パートナー</span></div><div class="deal-members">名和 / 沢坂<span class="source-tag">PSSOL</span></div></td>
+            <td><span class="status-badge status-ph4">PJ可能案件</span></td>
+            <td><div class="deal-note">4月分。Status：AIヘルプデスク提供確認とジョーシスとの資産管理比較。Next：PSSOLからの連絡待ち。</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- パートナー別 移行率 -->
+    <div class="deals-section">
+      <div class="section-label">パートナー別 商談移行率</div>
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>パートナー</th>
+            <th class="num">取得社数</th>
+            <th class="num">トライアル申し込み</th>
+            <th class="num">移行率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="source-row" data-target="src-partner-goto">
+            <td>後藤さん紹介<svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">1<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-partner-goto">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">株式会社ダイドウトランスプラネット
+                    <div class="b-companies">
+                      <span class="b-company">3月分・有効商談</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-partner-assist">
+            <td>株式会社アシスト<svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">1<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-partner-assist">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">株式会社MTG
+                    <div class="b-companies">
+                      <span class="b-company">3月分・有効商談</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-partner-orix">
+            <td>オリックス・レンテック<svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">1<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-partner-orix">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">株式会社DAY TO LIFE
+                    <div class="b-companies">
+                      <span class="b-company">4月分・PJ可能案件</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="src-partner-pssol">
+            <td>PSSOL<svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            <td class="num">1<span class="num-unit">社</span></td>
+            <td class="num zero-num">0<span class="num-unit">社</span></td>
+            <td class="num rate-cell zero">0%</td>
+          </tr>
+          <tr class="source-detail-row" id="src-partner-pssol">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">Trust Base株式会社
+                    <div class="b-companies">
+                      <span class="b-company">4月分・PJ可能案件</span>
+                    </div>
+                  </div>
+                  <div class="b-num">1<span class="b-unit">社</span></div>
+                  <div class="b-num zero">0<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">0%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="total-row">
+            <td>合計</td>
+            <td class="num">4<span class="num-unit">社</span></td>
+            <td class="num">0<span class="num-unit">社</span></td>
+            <td class="num rate-cell">0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /tab-partner -->
 
   <!-- ══════════════════════════════════════════ -->
   <!--              2026年3月 TAB                  -->
