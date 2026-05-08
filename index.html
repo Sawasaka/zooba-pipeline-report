@@ -1398,6 +1398,7 @@
     <button class="tab-btn" data-tab="apr">2026年4月</button>
     <button class="tab-btn" data-tab="may">2026年5月</button>
     <button class="tab-btn" data-tab="revival">掘り起こし</button>
+    <button class="tab-btn" data-tab="excluded">有効商談外</button>
   </div>
 
   <!-- ══════════════════════════════════════════ -->
@@ -1717,7 +1718,7 @@
           <tr>
             <th>経由元カテゴリ</th>
             <th class="num">取得社数</th>
-            <th class="num">トライアル申し込み</th>
+            <th class="num">PJ進行</th>
             <th class="num">移行率</th>
           </tr>
         </thead>
@@ -1929,8 +1930,8 @@
           <tr class="total-row">
             <td>合計</td>
             <td class="num">22<span class="num-unit">社</span></td>
-            <td class="num">9<span class="num-unit">社</span></td>
-            <td class="num rate-cell">40%</td>
+            <td class="num">10<span class="num-unit">社</span></td>
+            <td class="num rate-cell">45%</td>
           </tr>
         </tbody>
       </table>
@@ -2219,7 +2220,7 @@
           <tr>
             <th>経由元カテゴリ</th>
             <th class="num">取得社数</th>
-            <th class="num">トライアル申し込み</th>
+            <th class="num">PJ進行</th>
             <th class="num">移行率</th>
           </tr>
         </thead>
@@ -2547,7 +2548,7 @@
           <tr>
             <th>パートナー</th>
             <th class="num">取得社数</th>
-            <th class="num">トライアル申し込み</th>
+            <th class="num">PJ進行</th>
             <th class="num">移行率</th>
           </tr>
         </thead>
@@ -3347,6 +3348,60 @@
     </div>
 
   </div><!-- /tab-revival -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--              有効商談外 TAB                  -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="tab-excluded" class="tab-panel">
+
+    <div class="section-label">有効商談外 — 認定条件を満たさない企業</div>
+
+    <div class="kpi-flow">
+      <div class="kpi-card">
+        <div class="kpi-label" style="color:var(--text-muted)">合計件数</div>
+        <div class="kpi-value">3<span>社</span></div>
+        <div class="kpi-cond">
+          <div class="kpi-cond-title">対象</div>
+          認定条件不適合・対象外案件
+        </div>
+      </div>
+    </div>
+
+    <div class="deals-section">
+      <div class="section-label">有効商談外一覧</div>
+      <table class="deals-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>企業名 / 経由</th>
+            <th>商談数</th>
+            <th>商談外の理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="deal-no">01</span></td>
+            <td><div class="deal-company">農林水産省</div><div class="deal-members">沢坂<span class="source-tag">バックオフィスDXカンファレンス</span></div></td>
+            <td><span class="status-badge status-pending">1件</span></td>
+            <td><div class="deal-note">情報収集のみ。導入意思なし。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">02</span></td>
+            <td><div class="deal-company">個人事業主SYCS</div><div class="deal-members">沢坂<span class="source-tag">資料請求</span></div></td>
+            <td><span class="status-badge status-pending">1件</span></td>
+            <td><div class="deal-note">個人事業主のため、法人未設立。法人化後に再検討余地あり。</div></td>
+          </tr>
+          <tr>
+            <td><span class="deal-no">03</span></td>
+            <td><div class="deal-company">株式会社テレビ朝日</div><div class="deal-members">沢坂<span class="source-tag">バックオフィスDXカンファレンス</span></div></td>
+            <td><span class="status-badge status-pending">1件</span></td>
+            <td><div class="deal-note">セミナー経由によるお勉強会のため。導入検討段階ではない。</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /tab-excluded -->
 
   <!-- ━━━━ PHASE CONDITIONS MODAL ━━━━ -->
   <div id="phase-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
