@@ -1041,6 +1041,48 @@
     letter-spacing: 0.05em;
   }
 
+  .source-table tr.comparison-excluded-row {
+    background: rgba(255,255,255,0.015);
+  }
+  .source-table tr.comparison-excluded-row:hover {
+    background: rgba(255,255,255,0.03);
+  }
+  .source-table tr.comparison-excluded-row td {
+    padding: 10px 18px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    border-color: rgba(255,255,255,0.08);
+    font-weight: 500;
+  }
+  .source-table tr.comparison-excluded-row .src-detail {
+    margin-top: 3px;
+    font-size: 10px;
+    line-height: 1.4;
+    color: rgba(123,159,190,0.75);
+  }
+  .source-table tr.comparison-excluded-row .comparison-excluded-count {
+    font-size: 20px;
+    color: rgba(123,159,190,0.75);
+  }
+  .source-table tr.comparison-excluded-row .expand-chevron {
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+  }
+  .source-table tr.comparison-excluded-detail > td {
+    background: rgba(0,0,0,0.12);
+  }
+  .comparison-excluded-detail .breakdown-list {
+    padding: 2px 18px 10px;
+  }
+  .comparison-excluded-detail .breakdown-row {
+    padding: 10px 0;
+  }
+  .comparison-excluded-detail .b-company {
+    background: rgba(255,255,255,0.025);
+    color: var(--text-muted);
+  }
+
   .source-table tr.source-detail-row { display: none; }
   .source-table tr.source-detail-row.open { display: table-row; }
   .source-table tr.source-detail-row > td {
@@ -2486,10 +2528,10 @@
             </td>
           </tr>
 
-          <tr class="source-row" data-target="hd-unclassified">
+          <tr class="source-row comparison-excluded-row" data-target="hd-unclassified">
             <td colspan="3">比較対象外（判断不可）<span class="comparison-excluded-count">3<span class="num-unit">社</span></span><span class="src-detail">19社のうち、ツール・案件条件から二項比較に含めない企業</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
           </tr>
-          <tr class="source-detail-row" id="hd-unclassified">
+          <tr class="source-detail-row comparison-excluded-detail" id="hd-unclassified">
             <td colspan="3">
               <div class="breakdown-list">
                 <div class="breakdown-row">
