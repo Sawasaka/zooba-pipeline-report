@@ -1021,6 +1021,26 @@
     color: var(--gold);
   }
 
+  .source-table .comparison-excluded-count {
+    float: right;
+    margin-left: 16px;
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .source-table .comparison-excluded-count .num-unit {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: 4px;
+    letter-spacing: 0.05em;
+  }
+
   .source-table tr.source-detail-row { display: none; }
   .source-table tr.source-detail-row.open { display: table-row; }
   .source-table tr.source-detail-row > td {
@@ -2463,6 +2483,28 @@
                   <div class="b-num zero">0<span class="b-unit">社</span></div>
                   <div class="b-num">7<span class="b-unit">社</span></div>
                   <div class="b-rate highlight">100%</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="source-row" data-target="hd-unclassified">
+            <td colspan="4">比較対象外（判断不可）<span class="comparison-excluded-count">3<span class="num-unit">社</span></span><span class="src-detail">19社のうち、ツール・案件条件から二項比較に含めない企業</span><svg class="expand-chevron" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+          </tr>
+          <tr class="source-detail-row" id="hd-unclassified">
+            <td colspan="4">
+              <div class="breakdown-list">
+                <div class="breakdown-row">
+                  <div class="b-name">含めていない企業
+                    <div class="b-companies">
+                      <span class="b-company">フューチャーセキュアウェイブ株式会社（判断保留：まだ判断できない状況）</span>
+                      <span class="b-company">渡邊建設株式会社（判断不可：完全BPO案件）</span>
+                      <span class="b-company">株式会社エクサウィザーズ（判断不可：情報なし）</span>
+                    </div>
+                  </div>
+                  <div class="b-num zero">対象外</div>
+                  <div class="b-num zero">3<span class="b-unit">社</span></div>
+                  <div class="b-rate zero">-</div>
                 </div>
               </div>
             </td>
